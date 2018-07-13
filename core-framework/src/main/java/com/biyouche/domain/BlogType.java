@@ -3,8 +3,8 @@ package com.biyouche.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BlogType implements Serializable {
-	
+public class BlogType implements Serializable{
+
 	private static final long serialVersionUID = -836527296314113912L;
 
 	private Integer id;

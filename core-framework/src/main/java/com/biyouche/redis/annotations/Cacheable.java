@@ -7,6 +7,11 @@ import java.lang.annotation.Target;
 
 import com.biyouche.redis.enums.ExpireTime;
 
+/**
+ * redis自定义回设缓存
+ * @author lgh
+ *
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
 public @interface Cacheable {

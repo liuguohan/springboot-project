@@ -1,9 +1,10 @@
 package com.biyouche.redis.enums;
 
-/** 
+/**
  * 失效时间枚举类 
- * 
- */  
+ * @author lgh
+ *
+ */
 public enum ExpireTime {  
       
     /** 

@@ -143,5 +143,48 @@ public class ValidatorUtils {
 
 		return checkString(md5, "[0-9A-Fa-f]+");
 	}
+
+	public static void isLoginMobile(String code){
+		code = StringUtils.nullToStrTrim(code);
+		if(isNull(code)){
+//			throw new EduException(200100);
+		}
+		if(code.length() != 11) {
+//			throw new EduException(200101);
+		}
+		String regex = "^13[0-9]{9}$|14[0-9]{9}|15[0-9]{9}|17[0-9]{9}$|18[0-9]{9}$";
+
+		boolean flg =  code.matches(regex);
+		if(!flg){
+//			throw new EduException(200101);
+		}
+	}
+
+	public static boolean isPassword(String password){
+		password = StringUtils.nullToStrTrim(password);
+		if(password.length()<6||password.length()>20){
+			return false;
+		}
+		return true;
+	}
+
+	public static String nullToStrTrim(String str) {
+		if (str == null) {
+			str = "";
+		}
+		return str.trim();
+	}
+	
+	public static boolean isInfoCode(String code) {
+
+		code = nullToStrTrim(code);
+    	if(code.length() != 6) {
+    		return false;
+    	}
+
+    	String regex = "^([1-9])\\d{5}$";
+
+    	return code.matches(regex);
+	}
 	
 }

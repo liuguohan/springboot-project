@@ -2,13 +2,13 @@ package com.biyouche.constants;
 
 
 public class Constants {
-    public static final String  EMPTY           = "";
+    public static final String  EMPTY  = "";
     
-    public static final String  CONFIG_PROPERTIES_KEY               = "config.properties.file";
+    public static final String  CONFIG_PROPERTIES_KEY = "config.properties.file";
 
-    public static final String  DEFAULT_CONFIG_PROPERTIES           = "config";
+    public static final String  DEFAULT_CONFIG_PROPERTIES = "config";
     
-    public static final String  UTF8           = "utf-8"; 
+    public static final String  UTF8 = "utf-8";
     
 	public static String FORMAT_XML = "xml";
 	

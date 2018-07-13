@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.biyouche.dao.BlogTypeMapper;
 import com.biyouche.domain.BlogType;
-import com.biyouche.rabbitmq.RabbitMQProducer;
+import com.biyouche.rabbitmq.producer.RabbitMQProducer;
 import com.biyouche.redis.annotations.Cacheable;
 import com.biyouche.redis.enums.ExpireTime;
 import com.biyouche.service.BlogService;
@@ -32,7 +32,7 @@ public class BlogServiceImpl implements BlogService  {
 
 	@Bean
 	Queue queue(){
-	     return new Queue(queue,false);
+	    return new Queue(queue,false);
 	}
 
 	@Autowired

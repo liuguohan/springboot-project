@@ -22,6 +22,11 @@ import com.biyouche.redis.annotations.Cacheable;
 import com.biyouche.redis.prefix.RedisKeyPrefix;
 import com.biyouche.utils.ValidatorUtils;
 
+/**
+ * redis缓存切面
+ * @author lgh
+ *
+ */
 @Aspect
 @Component
 public class CacheAspect {
