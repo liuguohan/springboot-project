@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.biyouche.config.PropertiesConfig;
 import com.biyouche.exception.BussinessException;
 import com.biyouche.response.ResponseObject;
 import com.biyouche.utils.ValidatorUtils;
@@ -33,8 +34,10 @@ public class BaseController {
 		ResponseObject response = new ResponseObject();
 		
 		Map<String, Object> info = new LinkedHashMap<String, Object>();
-		info.put("code", "100000");
-		info.put("msg", "处理成功");
+		
+		String code = "100000";
+		info.put("code", code);
+		info.put("msg", PropertiesConfig.getProperties("message.properties", code));
 		
 		if( ValidatorUtils.isEmpty(content) ) {
 			content = new LinkedHashMap<String, Object>();
@@ -65,10 +68,11 @@ public class BaseController {
 			if( ValidatorUtils.isInfoCode(message) ) {
 				
 				info.put("code", message);
-				info.put("msg", "...");
+				info.put("msg", PropertiesConfig.getProperties("message.properties", message));
 			}else {
-				info.put("code", "100001");
-				info.put("msg", message);
+				String code = "100001";
+				info.put("code", code);
+				info.put("msg", PropertiesConfig.getProperties("message.properties", code));
 			}
 			
 			response.setInfo(info);
@@ -76,18 +80,18 @@ public class BaseController {
 		}else if( e instanceof RuntimeException ) {
 			LOGGER.error("RuntimeException: >" + e.getMessage());
 			e.printStackTrace();
-			
-			info.put("code", "100002");
-			info.put("msg", "系统忙,请稍后再试");
+			String code = "100002";
+			info.put("code", code);
+			info.put("msg", PropertiesConfig.getProperties("message.properties", code));
 			response.setInfo(info);
 			
 		}else if( e instanceof Exception) {
 			
 			LOGGER.error("Exception: >" + e.getMessage());
 			e.printStackTrace();
-			
-			info.put("code", "100002");
-			info.put("msg", "系统忙,请稍后再试");
+			String code = "100002";
+			info.put("code", code);
+			info.put("msg", PropertiesConfig.getProperties("message.properties", code));
 			response.setInfo(info);
 		}
 		return response;
